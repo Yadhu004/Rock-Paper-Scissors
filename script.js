@@ -1,4 +1,4 @@
-function getCompputerChoice(){
+function getComputerChoice(){
 
     let choice = Math.floor(Math.random() * 3)  ;
 
@@ -32,74 +32,82 @@ function getHumanChoice(){
     
 }
 
-// for(let i = 0; i < 5; i++){
-//     playGame();
-// }
 
-// function playGame(){
-
-function playRound(humanChoice, computerChoice) {
+function playGame(){
 
     let humanScore = 0;
     let computerScore = 0;
 
-    if(humanChoice === "Rock"){
-        if(computerChoice === "Paper"){
-            computerScore++;
-        }
-        else if(computerChoice === "Scissors"){
-            humanScore++;
-        }
-        else{
-            console.log("No result");
-        }
-    }
 
-    else if (humanChoice === "Paper") {
-        if (computerChoice === "Scissors") {
-            computerScore++;
+    function playRound(humanChoice, computerChoice) {
+
+        if (humanChoice === "Rock") {
+            if (computerChoice === "Paper") {
+                computerScore++;
+                console.log("You lost the round");
+            }
+            else if (computerChoice === "Scissors") {
+                humanScore++;
+                console.log("You won the round");
+            }
+            else {
+                console.log("No result");
+            }
         }
-        else if (computerChoice === "Rock") {
-            humanScore++;
+
+        else if (humanChoice === "Paper") {
+            if (computerChoice === "Scissors") {
+                computerScore++;
+                console.log("You lost the round");
+            }
+            else if (computerChoice === "Rock") {
+                humanScore++;
+                console.log("You won the round");
+            }
+            else {
+                console.log("No result");
+            }
         }
+
         else {
-            console.log("No result");
+            if (computerChoice === "Rock") {
+                computerScore++;
+                console.log("You lost the round");
+            }
+            else if (computerChoice === "Paper") {
+                humanScore++;
+                console.log("You won the round");
+            }
+            else {
+                console.log("No result");
+            }
         }
+        
     }
 
-    else {
-        if (computerChoice === "Rock") {
-            computerScore++;
-        }
-        else if (computerChoice === "Paper") {
-            humanScore++;
-        }
-        else {
-            console.log("No result");
-        }
+
+    for (let i = 0; i < 5; i++) {
+        let humanSelection = getHumanChoice();
+        let computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
     }
 
-    if(humanScore > computerScore){
-        console.log("You won the round");
+    if (humanScore > computerScore) {
+        console.log("You won the game");
     }
     else if (humanScore < computerScore) {
-        console.log("You lost the round");
+        console.log("You lost the game");
     }
     else{
-        console.log("Round tied");
+        console.log("Game tied");
     }
+
 }
-// }
 
 
-
-let humanSelection = getHumanChoice();
-let computerSelection = getCompputerChoice();
-console.log(computerSelection);
-
-playRound(humanSelection, computerSelection);
+playGame();
 
 
 // console.log(getHumanChoice());
-// console.log(getCompputerChoice());
+// console.log(getComputerChoice());
 
