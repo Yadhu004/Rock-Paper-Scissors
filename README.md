@@ -1,1 +1,2 @@
 # Rock-Paper-Scissors
+This project helped me apply basic javascript concepts like functions, conditionals  and build a rock paper scissors game played between the user and the computer. The game is completely played in the console.
